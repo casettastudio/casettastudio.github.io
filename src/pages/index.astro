@@ -1,0 +1,167 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import recordingGearImage from "../assets/images/IMG_4711_1.PNG.webp";
+import recordingSessionImage from "../assets/images/IMG_4727.PNG.webp";
+import studioImage from "../assets/images/IMG_4733.PNG.webp";
+import heroImage from "../assets/images/logo lfc.png";
+
+
+const gallery = [
+    { src: recordingGearImage, alt: "Dettaglio di attrezzatura musicale nello studio", altEn: "Close-up of music equipment in the studio", title: "Attrezzatura", titleEn: "Studio gear" },
+    { src: recordingSessionImage, alt: "Musicisti insieme durante una sessione in studio", altEn: "Musicians together during a studio session", title: "Insieme in studio", titleEn: "Together in the studio" },
+    { src: studioImage, alt: "La sala prove e registrazione di Casetta Studio", altEn: "The rehearsal and recording room at Casetta Studio", title: "La sala", titleEn: "The studio room" },
+];
+
+const videos = [
+    { id: "QMrQ4aJdVSU", title: "Live From Casetta YouTube video 1" },
+    { id: "MN9mRnuQ2YU", title: "Live From Casetta YouTube video 2" },
+];
+---
+
+<Layout
+    title="Casetta Studio"
+    description="Un'identità riconoscibile, immagini che raccontano e idee che prendono forma."
+>
+    <div class="flex flex-col gap-20 lg:gap-28">
+    <section class="mx-auto grid min-h-[78vh] w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 md:grid-cols-[1.2fr_0.8fr] md:gap-12 md:px-10" aria-labelledby="hero-title">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700 md:col-span-2" data-copy-it="Casetta Studio · Studio creativo indipendente" data-copy-en="Casetta Studio · Independent creative studio">Casetta Studio · Studio creativo indipendente</p>
+        <div class="flex flex-col gap-10">
+            <h1 id="hero-title" class="max-w-6xl font-grunge text-6xl leading-[0.9] tracking-tight text-base-900 md:text-7xl lg:text-8xl">
+            <span data-copy-it="Casetta Studio!" data-copy-en="Casetta Studio!">Casetta Studio!</span>
+            </h1>
+            <div class="flex flex-col items-start gap-7">
+            <p class="max-w-2xl font-mono text-lg leading-relaxed text-base-900 md:text-xl" data-copy-it="Casetta Studio può essere davvero casa se ciò che ti interessa di più quando fai musica è sentirti a tuo agio. Stiamo costruendo uno spazio in cui la musica viene prima di tutto, ma al centro ci sono comodità, fiducia e connessione." data-copy-en="Casetta Studio can truly feel like home if what matters the most to you when making music is feeling at ease. We are building a space where music comes first, but comfort, trust, and connection are at the very heart of everything we do.">
+                    Casetta Studio può essere davvero casa se ciò che ti interessa di più quando fai musica è sentirti a tuo agio. Stiamo costruendo uno spazio in cui la musica viene prima di tutto, ma al centro ci sono comodità, fiducia e connessione.
+                </p>
+                <a href="#contatti" class="inline-flex shrink-0 items-center border-2 border-base-900 px-6 py-3 font-grunge text-xl uppercase tracking-wide text-base-900 transition-colors hover:bg-base-900 hover:text-base-100">
+                <span data-copy-it="Parliamone" data-copy-en="Let's talk">Parliamone</span> <span aria-hidden="true" class="ml-3">↘</span>
+                </a>
+            </div>
+        </div>
+        <figure class="aspect-[4/5] overflow-hidden">
+            <Image
+                src={heroImage}
+                alt="Logo di Casetta Studio"
+                data-alt-it="Logo di Casetta Studio"
+                data-alt-en="Casetta Studio logo"
+                class="h-full w-full object-contain"
+                sizes="(max-width: 768px) 100vw, 40vw"
+                loading="eager"
+            />
+        </figure>
+    </section>
+
+    <section id="il-progetto" class="mx-auto grid w-full max-w-7xl gap-8 border-t border-base-700 px-6 pt-10 md:grid-cols-[1fr_2fr] md:px-10" aria-labelledby="about-title">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="01 / Il progetto" data-copy-en="01 / The studio">01 / Il progetto</p>
+        <div class="flex flex-col gap-5">
+            <h2 id="about-title" class="font-grunge text-4xl uppercase leading-tight text-base-900 md:text-6xl" data-copy-it="Live From Casetta!" data-copy-en="Live From Casetta!">Live From Casetta!</h2>
+            <p class="max-w-3xl font-mono text-base leading-relaxed text-base-900 md:text-lg" data-copy-it=
+"Il nostro personale format di live
+session con artisti di ogni genere, che nasce dall’idea di creare un
+ambiente confortevole, casalingo e informale (ma non per questo meno
+professionale), in cui gli artisti possano suonare come se fossero in
+casa, piuttosto che in studio, riprendendo il tutto in maniera
+professionale, grazie anche alla collaborazione video con
+FilmCanMovies." data-copy-en=
+"Our personal live session format featuring artists of all genres. It stems from the idea of creating a
+cozy, homely, and informal (yet highly professional) environment, where
+artists can perform as if they were at home rather than in a studio,
+professional recording it all also thanks to our video collaboration with
+FilmCanMovies.">
+                Dalla prima intuizione alla cura dei dettagli, costruiamo progetti coerenti e riconoscibili. Branding, direzione creativa e web design si incontrano per trasformare una buona idea in qualcosa che lascia il segno.
+            </p>
+        </div>
+    </section>
+
+    <section id="galleria" class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 md:px-10" aria-labelledby="gallery-title">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+                <p class="mb-3 font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="02 / Una selezione" data-copy-en="02 / Selected work">02 / Una selezione</p>
+                <h2 id="gallery-title" class="font-grunge text-5xl uppercase leading-none text-base-900 md:text-7xl" data-copy-it="Cosa offriamo" data-copy-en="What we offer">Immagini, idee, materia.</h2>
+            </div>
+            <p class="max-w-sm font-mono text-sm leading-relaxed text-base-900" data-copy-it="Artisti che hanno collaborato con noi: Mother Giraffe, LEA LEA, Saint Huck, A Lemon, Nesima Park, Helen Burns e molti altri... " data-copy-en="Artist that have been working with us: Mother Giraffe, LEA LEA, Saint Huck, A Lemon, Nesima Park, Helen Burns and many more...">Tre direzioni diverse, un unico filo: dare a ogni progetto una voce tutta sua.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+            {gallery.map((item, index) => (
+                <figure class:list={["group", index === 1 && "md:mt-16"]}>
+                    <div class="aspect-[4/5] overflow-hidden border-2 border-base-900 p-2">
+                        <Image
+                            src={item.src}
+                            alt={item.alt}
+                            data-alt-it={item.alt}
+                            data-alt-en={item.altEn}
+                            class="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                    </div>
+                    <figcaption class="mt-4 flex items-center justify-between border-b border-base-700 pb-3 font-mono text-sm uppercase tracking-wider text-base-900">
+                        <span data-copy-it={item.title} data-copy-en={item.titleEn}>{item.title}</span>
+                        <span aria-hidden="true">0{index + 1}</span>
+                    </figcaption>
+                </figure>
+            ))}
+        </div>
+
+        <ul class="grid gap-6 pt-8 font-mono text-base leading-relaxed text-base-900 md:grid-cols-2 md:gap-x-12 md:gap-y-8 md:text-lg">
+            <li class="ml-5 list-disc">
+                <p data-copy-it="Video integrale della live session contenente 4 brani registrati live in presa diretta e ripresi con tre camere a mano e una fissa (Blackmagic), che verrà caricato sul canale YouTube dedicato Live From Casetta." data-copy-en="Full-length video of the live session featuring 4 tracks recorded completely live. The session is captured using three handheld cameras and one fixed camera (Blackmagic) and will be uploaded to our dedicated YouTube channel, Live From Casetta.">Video integrale della live session contenente 4 brani registrati live in presa diretta e ripresi con tre camere a mano e una fissa (Blackmagic), che verrà caricato sul canale YouTube dedicato Live From Casetta.</p>
+            </li>
+            <li class="ml-5 list-disc">
+                <p data-copy-it="Video separati dei 4 brani, che verranno forniti agli artisti e potranno essere caricati liberamente sui loro canali successivamente alla pubblicazione del video integrale." data-copy-en="Individual videos of the 4 tracks, which will be delivered directly to the artists to be freely uploaded to their own channels following the release of the full-length session.">Video separati dei 4 brani, che verranno forniti agli artisti e potranno essere caricati liberamente sui loro canali successivamente alla pubblicazione del video integrale.</p>
+            </li>
+            <li class="ml-5 list-disc">
+                <p data-copy-it="Master audio dei 4 brani, di proprietà dell'artista e utilizzabili come EP o singoli live." data-copy-en="Audio masters of the 4 tracks, fully owned by the artist, which can be used as a live EP or standalone live singles.">Master audio dei 4 brani, di proprietà dell'artista e utilizzabili come EP o singoli live.</p>
+            </li>
+            <li class="ml-5 list-disc">
+                <p data-copy-it="3 Reel brevi per Instagram di anteprima (30 secondi - 1 minuto), che verranno pubblicati in collaborazione tra gli account dell'artista e dello studio." data-copy-en="3 short Reels for Instagram previews (30 seconds to 1 minute), to be published as a collaborative post between the artist's and the studio's accounts.">3 Reel brevi per Instagram di anteprima (30 secondi - 1 minuto), che verranno pubblicati in collaborazione tra gli account dell'artista e dello studio.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="video" class="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 md:px-10" aria-labelledby="video-title">
+        <div>
+            <p class="mb-3 font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="03 / Guarda" data-copy-en="03 / Watch">03 / Guarda</p>
+            <h2 id="video-title" class="font-grunge text-5xl uppercase leading-none text-base-900 md:text-7xl" data-copy-it="Live From Casetta" data-copy-en="Live From Casetta">Live From Casetta</h2>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2">
+            {videos.map((video) => (
+                <iframe
+                    class="aspect-video w-full border-2 border-base-900"
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+                    title={video.title}
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                />
+            ))}
+        </div>
+    </section>
+
+    <section id="contatti" class="mx-auto grid w-full max-w-7xl gap-10 border-y border-base-700 px-6 py-12 md:grid-cols-[1fr_2fr] md:px-10 md:py-16" aria-labelledby="contact-title">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="04 / Contatti" data-copy-en="04 / Contact">04 / Contatti</p>
+        <div class="flex flex-col items-start gap-8">
+            <div class="flex flex-col gap-4">
+                <h2 id="contact-title" class="font-grunge text-5xl uppercase leading-none text-base-900 md:text-7xl" data-copy-it="Hai un'idea?" data-copy-en="Have an idea?">Hai un'idea?</h2>
+                <p class="max-w-2xl font-mono text-base leading-relaxed text-base-900 md:text-lg" data-copy-it="Raccontami cosa hai in mente: troviamo insieme il modo giusto per farla partire." data-copy-en="Tell me what you have in mind: let's find the right way to bring it to life.">Raccontami cosa hai in mente: troviamo insieme il modo giusto per farla partire.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-6 font-mono text-base text-base-900">
+                <a class="inline-flex items-center gap-2 underline underline-offset-4 transition-colors hover:text-base-700" href="https://www.youtube.com/@livefromcasetta986" target="_blank" rel="noopener noreferrer" aria-label="YouTube Live From Casetta">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+                    <span>YouTube</span>
+                </a>
+                <a class="inline-flex items-center gap-2 underline underline-offset-4 transition-colors hover:text-base-700" href="https://www.instagram.com/live_from_casetta/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Live From Casetta">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7Zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3Zm11 1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
+                    <span>Instagram</span>
+                </a>
+                <span class="inline-flex items-center gap-2 opacity-70" aria-label="Modulo email in arrivo">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+                    <span data-copy-it="Modulo email in arrivo" data-copy-en="Email form coming soon">Modulo email in arrivo</span>
+                </span>
+            </div>
+        </div>
+    </section>
+    </div>
+</Layout>

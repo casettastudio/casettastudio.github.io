@@ -1,0 +1,59 @@
+---
+// assets
+import { Font } from "astro:assets";
+
+// components
+import Seo, { type Props as SEOProps } from "../../components/global/Seo.astro";
+
+// Site-wide defaults (edit these once for your whole site) 
+const SITE_NAME    = "Casetta Studio";
+const TITLE_TMPL   = "%s | Casetta Studio";
+const BASE_URL     = import.meta.env.BASE_URL;
+const DEFAULT_OG   = new URL(`${BASE_URL}og-image.png`, Astro.site ?? Astro.url.origin).href;
+const TWITTER_SITE = "";
+const THEME_COLOR  = "#e9782f";
+const LOCALE       = "it_IT";
+
+// Layout accepts all SEO props + standard layout props
+export interface Props extends SEOProps {
+  /** Extra <head> content injected after SEO tags (optional). */
+  headSlot?: boolean;
+}
+
+const {
+  // Required SEO props (pages must supply these two)
+  title,
+  description,
+  // SEO props with site-wide fallbacks
+  titleTemplate  = TITLE_TMPL,
+  siteName       = SITE_NAME,
+  ogImage        = DEFAULT_OG,
+  twitterSite    = TWITTER_SITE,
+  themeColor     = THEME_COLOR,
+  locale         = LOCALE,
+  // Pass all remaining SEO props through unchanged
+  ...seoProps
+} = Astro.props;
+
+
+---
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/svg+xml" href={`${BASE_URL}favicon.svg`} />
+	<link rel="sitemap" href={`${BASE_URL}sitemap-index.xml`} />
+	<Font cssVariable="--font-grunge" />
+	<Font cssVariable="--font-mono" />
+	<meta name="generator" content={Astro.generator} />
+	<Seo
+      title={title}
+      description={description}
+      titleTemplate={titleTemplate}
+      siteName={siteName}
+      ogImage={ogImage}
+      twitterSite={twitterSite}
+      themeColor={themeColor}
+      locale={locale}
+      {...seoProps}
+    />
+</head>

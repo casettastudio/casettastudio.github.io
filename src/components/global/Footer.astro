@@ -1,0 +1,20 @@
+---
+// components
+import Container from "../elements/Container.astro";
+import Heading from "../elements/Heading.astro";
+import Text from "../elements/Text.astro";
+import Link from "../elements/Link.astro";
+---
+
+<Container variant={'xl'} class="mt-32 pb-8">
+    <div class="flex flex-col items-center gap-6 border-t border-base-700 pt-8 text-center md:flex-row md:justify-between md:text-left">
+        <div>
+            <Heading tagName="h3" tagSize="h5" class="text-base-900">Casetta Studio</Heading>
+            <Text variant={'sm'} class="mt-2 text-base-900" data-copy-it="Un progetto alla volta, fatto con cura." data-copy-en="One project at a time, made with care.">Un progetto alla volta, fatto con cura.</Text>
+        </div>
+        <Link variant={'nav'} href={`${import.meta.env.BASE_URL}#contatti`}><span data-copy-it="Scrivici" data-copy-en="Get in touch">Scrivici</span> ↗</Link>
+    </div>
+    <div class="mt-10 flex flex-col text-center">
+        <Text variant={'sm'} class="text-base-900" data-copy-it={`© ${new Date().getFullYear()} Casetta Studio. Tutti i diritti riservati.`} data-copy-en={`© ${new Date().getFullYear()} Casetta Studio. All rights reserved.`}>© {new Date().getFullYear()} Casetta Studio. Tutti i diritti riservati.</Text>
+    </div>
+</Container>

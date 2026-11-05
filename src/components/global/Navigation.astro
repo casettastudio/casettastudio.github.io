@@ -1,0 +1,137 @@
+---
+// components
+import Link from "../elements/Link.astro";
+
+// links
+const navLinks = [
+    { title: "Il progetto", titleEn: "The studio", href: `${import.meta.env.BASE_URL}#il-progetto` },
+    { title: "Galleria", titleEn: "Selected work", href: `${import.meta.env.BASE_URL}#galleria` },
+    { title: "Video", titleEn: "Videos", href: `${import.meta.env.BASE_URL}#video` },
+    { title: "Contatti", titleEn: "Contact", href: `${import.meta.env.BASE_URL}#contatti` }
+]
+---
+
+<nav class="fixed top-0 right-6 left-0 z-50 flex justify-end gap-6 py-8">
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex gap-8">
+        {
+            navLinks.map((link, index) => (
+                <li>
+                    <Link href={link.href} variant={'nav'}>{index + 1}. <span data-copy-it={link.title} data-copy-en={link.titleEn}>{link.title}</span></Link>
+                </li>
+            ))
+        }
+    </ul>
+    <!-- Mobile Nav -->
+    <div class="md:hidden">
+        <button id="open-nav" aria-label="Apri il menu" data-menu-label-it="Apri il menu" data-menu-label-en="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#24160e" d="m9.5 16.5l7-4.5l-7-4.5v9ZM12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+        </button>
+        <div class="hidden fixed inset-0 bg-base-100 z-50" id="mobile-nav">
+            <div class="flex flex-col items-center justify-center h-full">
+                <button id="close-nav" aria-label="Chiudi il menu" data-menu-label-it="Chiudi il menu" data-menu-label-en="Close menu" class="absolute top-6 right-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#24160e" d="M9 16h2V8H9v8Zm4 0h2V8h-2v8Zm-1 6q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+                </button>
+                <ul class="flex flex-col p-6 gap-5 md:hidden text-center">
+                    {
+                        navLinks.map((link) => (
+                            <li><Link href={link.href} variant={'nav'}><span data-copy-it={link.title} data-copy-en={link.titleEn}>{link.title}</span></Link></li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center gap-2 font-mono text-sm uppercase tracking-wider">
+        <button type="button" data-language="it" aria-label="Passa alla lingua italiana" aria-pressed="true" class="transition-opacity hover:opacity-60">ITA</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-language="en" aria-label="Switch to English" aria-pressed="false" class="transition-opacity hover:opacity-60">ENG</button>
+    </div>
+</nav>
+
+<script>
+    type Language = "it" | "en";
+
+    const languageButtons = document.querySelectorAll<HTMLButtonElement>("[data-language]");
+    const translatableElements = document.querySelectorAll<HTMLElement>("[data-copy-it][data-copy-en]");
+    const imageElements = document.querySelectorAll<HTMLImageElement>("[data-alt-it][data-alt-en]");
+
+    function updateLanguage(language: Language, animate = true) {
+        document.documentElement.lang = language;
+        const suffix = language === "it" ? "It" : "En";
+
+        const updateText = () => {
+            translatableElements.forEach((element) => {
+                element.textContent = element.dataset[`copy${suffix}`] ?? "";
+            });
+            imageElements.forEach((image) => {
+                image.alt = image.dataset[`alt${suffix}`] ?? "";
+            });
+            document.querySelectorAll<HTMLElement>("[data-menu-label-it][data-menu-label-en]").forEach((button) => {
+                button.setAttribute("aria-label", button.dataset[`menuLabel${suffix}`] ?? "");
+            });
+            languageButtons.forEach((button) => {
+                const isSelected = button.dataset.language === language;
+                button.setAttribute("aria-pressed", String(isSelected));
+                button.classList.toggle("underline", isSelected);
+                button.classList.toggle("underline-offset-4", isSelected);
+            });
+
+            const isEnglish = language === "en";
+            document.title = isEnglish ? "Casetta Studio | Independent creative studio" : "Casetta Studio | Studio creativo indipendente";
+            document.querySelector('meta[name="description"]')?.setAttribute(
+                "content",
+                isEnglish
+                    ? "Distinctive identities, meaningful images and digital experiences. Ideas that take shape at Casetta Studio."
+                    : "Un'identità riconoscibile, immagini che raccontano e idee che prendono forma."
+            );
+            document.querySelector('meta[property="og:description"]')?.setAttribute(
+                "content",
+                isEnglish
+                    ? "Distinctive identities, meaningful images and digital experiences. Ideas that take shape at Casetta Studio."
+                    : "Un'identità riconoscibile, immagini che raccontano e idee che prendono forma."
+            );
+            document.querySelector('meta[property="og:locale"]')?.setAttribute("content", isEnglish ? "en_US" : "it_IT");
+        };
+
+        if (!animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            updateText();
+            return;
+        }
+
+        translatableElements.forEach((element) => {
+            element.classList.add("transition-opacity", "duration-200", "opacity-0");
+        });
+        window.setTimeout(() => {
+            updateText();
+            window.requestAnimationFrame(() => {
+                translatableElements.forEach((element) => element.classList.remove("opacity-0"));
+            });
+        }, 150);
+    }
+
+    const savedLanguage = window.localStorage.getItem("casetta-language");
+    const initialLanguage: Language = savedLanguage === "en" ? "en" : "it";
+    updateLanguage(initialLanguage, false);
+
+    languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const language = button.dataset.language;
+            if (language !== "it" && language !== "en") return;
+            window.localStorage.setItem("casetta-language", language);
+            updateLanguage(language);
+        });
+    });
+
+    const mobileNav = document.querySelector('#mobile-nav') as HTMLUListElement;
+    const openBtn = document.querySelector('#open-nav') as HTMLButtonElement;
+    const closeBtn = document.querySelector('#close-nav') as HTMLButtonElement;
+
+    openBtn.addEventListener("click", () => {
+        mobileNav.classList.remove('hidden');
+    })
+
+    closeBtn.addEventListener("click", () => {
+        mobileNav.classList.add('hidden');
+    })
+</script>
