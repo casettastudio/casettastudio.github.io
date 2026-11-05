@@ -25,22 +25,15 @@ const videos = [
     description="Il nostro personale format di live session con artisti di ogni genere"
 >
     <div class="flex flex-col gap-20 lg:gap-28">
-    <section class="mx-auto grid min-h-[78vh] w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 md:grid-cols-[1.2fr_0.8fr] md:gap-12 md:px-10" aria-labelledby="hero-title">
-        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700 md:col-span-2" data-copy-it="Casetta Studio · Studio creativo indipendente" data-copy-en="Casetta Studio · Independent creative studio">Casetta Studio · Studio creativo indipendente</p>
-        <div class="flex flex-col gap-10">
-            <h1 id="hero-title" class="max-w-6xl font-grunge text-6xl leading-[0.9] tracking-tight text-base-900 md:text-7xl lg:text-8xl">
-            <span data-copy-it="Casetta Studio!" data-copy-en="Casetta Studio!">Casetta Studio!</span>
-            </h1>
-            <div class="flex flex-col items-start gap-7">
-            <p class="max-w-2xl font-mono text-lg leading-relaxed text-base-900 md:text-xl" data-copy-it="Casetta Studio può essere davvero casa se ciò che ti interessa di più quando fai musica è sentirti a tuo agio. Stiamo costruendo uno spazio in cui la musica viene prima di tutto, ma al centro ci sono comodità, fiducia e connessione." data-copy-en="Casetta Studio can truly feel like home if what matters the most to you when making music is feeling at ease. We are building a space where music comes first, but comfort, trust, and connection are at the very heart of everything we do.">
-                    Casetta Studio può essere davvero casa se ciò che ti interessa di più quando fai musica è sentirti a tuo agio. Stiamo costruendo uno spazio in cui la musica viene prima di tutto, ma al centro ci sono comodità, fiducia e connessione.
-                </p>
-                <a href="#contatti" class="inline-flex shrink-0 items-center border-2 border-base-900 px-6 py-3 font-grunge text-xl uppercase tracking-wide text-base-900 transition-colors hover:bg-base-900 hover:text-base-100">
-                <span data-copy-it="Parliamone" data-copy-en="Let's talk">Parliamone</span> <span aria-hidden="true" class="ml-3">↘</span>
-                </a>
-            </div>
+    <section id="il-progetto" class="mx-auto grid min-h-[78vh] w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 md:grid-cols-[1.2fr_0.8fr] md:gap-12 md:px-10" aria-labelledby="about-title">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700 md:col-span-2" data-copy-it="01 / Live From Casetta" data-copy-en="01 / Live From Casetta">01 / Live From Casetta</p>
+        <div class="flex flex-col gap-5">
+            <h1 id="about-title" class="font-grunge text-4xl uppercase leading-tight text-base-900 md:text-6xl" data-copy-it="Live From Casetta!" data-copy-en="Live From Casetta!">Live From Casetta!</h1>
+            <p class="max-w-3xl font-mono text-base leading-relaxed text-base-900 md:text-lg" data-copy-it="Il nostro personale format di live session con artisti di ogni genere, che nasce dall’idea di creare un ambiente confortevole, casalingo e informale (ma non per questo meno professionale), in cui gli artisti possano suonare come se fossero in casa, piuttosto che in studio, riprendendo il tutto in maniera professionale, grazie anche alla collaborazione video con FilmCanMovies." data-copy-en="Our personal live session format featuring artists of all genres. It stems from the idea of creating a cozy, homely, and informal (yet highly professional) environment, where artists can perform as if they were at home rather than in a studio. The sessions are professionally filmed in collaboration with FilmCanMovies.">
+                Il nostro personale format di live session con artisti di ogni genere, che nasce dall’idea di creare un ambiente confortevole, casalingo e informale (ma non per questo meno professionale), in cui gli artisti possano suonare come se fossero in casa, piuttosto che in studio, riprendendo il tutto in maniera professionale, grazie anche alla collaborazione video con FilmCanMovies.
+            </p>
         </div>
-        <figure class="aspect-[4/5] overflow-hidden">
+        <figure class="aspect-[4/5] overflow-hidden md:col-start-2">
             <Image
                 src={heroImage}
                 alt="Logo di Casetta Studio"
@@ -51,28 +44,6 @@ const videos = [
                 loading="eager"
             />
         </figure>
-    </section>
-
-    <section id="il-progetto" class="mx-auto grid w-full max-w-7xl gap-8 border-t border-base-700 px-6 pt-10 md:grid-cols-[1fr_2fr] md:px-10" aria-labelledby="about-title">
-        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="01 / Il progetto" data-copy-en="01 / The studio">01 / Il progetto</p>
-        <div class="flex flex-col gap-5">
-            <h2 id="about-title" class="font-grunge text-4xl uppercase leading-tight text-base-900 md:text-6xl" data-copy-it="Live From Casetta!" data-copy-en="Live From Casetta!">Live From Casetta!</h2>
-            <p class="max-w-3xl font-mono text-base leading-relaxed text-base-900 md:text-lg" data-copy-it=
-"Il nostro personale format di live
-session con artisti di ogni genere, che nasce dall’idea di creare un
-ambiente confortevole, casalingo e informale (ma non per questo meno
-professionale), in cui gli artisti possano suonare come se fossero in
-casa, piuttosto che in studio, riprendendo il tutto in maniera
-professionale, grazie anche alla collaborazione video con
-FilmCanMovies." data-copy-en=
-"Our personal live session format featuring artists of all genres. It stems from the idea of creating a
-cozy, homely, and informal (yet highly professional) environment, where
-artists can perform as if they were at home rather than in a studio,
-professional recording it all also thanks to our video collaboration with
-FilmCanMovies.">
-                Dalla prima intuizione alla cura dei dettagli, costruiamo progetti coerenti e riconoscibili. Branding, direzione creativa e web design si incontrano per trasformare una buona idea in qualcosa che lascia il segno.
-            </p>
-        </div>
     </section>
 
     <section id="galleria" class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 md:px-10" aria-labelledby="gallery-title">
@@ -141,8 +112,21 @@ FilmCanMovies.">
         </div>
     </section>
 
-    <section id="contatti" class="mx-auto grid w-full max-w-7xl gap-10 border-y border-base-700 px-6 py-12 md:grid-cols-[1fr_2fr] md:px-10 md:py-16" aria-labelledby="contact-title">
-        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="04 / Contatti" data-copy-en="04 / Contact">04 / Contatti</p>
+    <section class="mx-auto grid w-full max-w-7xl gap-8 border-t border-base-700 px-6 pt-10 md:grid-cols-[1fr_2fr] md:px-10" aria-labelledby="studio-title">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="04 / Casetta Studio" data-copy-en="04 / Casetta Studio">04 / Casetta Studio</p>
+        <div class="flex flex-col gap-5">
+            <h2 id="studio-title" class="font-grunge text-4xl uppercase leading-tight text-base-900 md:text-6xl" data-copy-it="Casetta Studio!" data-copy-en="Casetta Studio!">Casetta Studio!</h2>
+            <p class="max-w-2xl font-mono text-base leading-relaxed text-base-900 md:text-lg" data-copy-it="Casetta Studio può essere davvero casa se ciò che ti interessa di più quando fai musica è sentirti a tuo agio. Stiamo costruendo uno spazio in cui la musica viene prima di tutto, ma al centro ci sono comodità, fiducia e connessione." data-copy-en="Casetta Studio can truly feel like home if what matters the most to you when making music is feeling at ease. We are building a space where music comes first, but comfort, trust, and connection are at the very heart of everything we do.">
+                Casetta Studio può essere davvero casa se ciò che ti interessa di più quando fai musica è sentirti a tuo agio. Stiamo costruendo uno spazio in cui la musica viene prima di tutto, ma al centro ci sono comodità, fiducia e connessione.
+            </p>
+            <a href="#contatti" class="inline-flex shrink-0 items-center self-start border-2 border-base-900 px-6 py-3 font-grunge text-xl uppercase tracking-wide text-base-900 transition-colors hover:bg-base-900 hover:text-base-100">
+                <span data-copy-it="Parliamone" data-copy-en="Let's talk">Parliamone</span> <span aria-hidden="true" class="ml-3">↘</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="contatti" class="mx-auto grid w-full max-w-7xl gap-10 border-t border-base-700 px-6 py-12 md:grid-cols-[1fr_2fr] md:px-10 md:py-16" aria-labelledby="contact-title">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-base-700" data-copy-it="05 / Contatti" data-copy-en="05 / Contact">05 / Contatti</p>
         <div class="flex flex-col items-start gap-8">
             <div class="flex flex-col gap-4">
                 <h2 id="contact-title" class="font-grunge text-5xl uppercase leading-none text-base-900 md:text-7xl" data-copy-it="Hai un'idea?" data-copy-en="Have an idea?">Hai un'idea?</h2>
