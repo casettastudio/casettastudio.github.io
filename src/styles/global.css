@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "tailwindcss-noise";
 
+.text-base-900,
+.text-base-700 {
+    color: #fff;
+}
+
 @keyframes page-enter {
     from {
         opacity: 0;
