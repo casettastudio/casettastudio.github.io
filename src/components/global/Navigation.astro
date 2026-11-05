@@ -78,18 +78,26 @@ const navLinks = [
             });
 
             const isEnglish = language === "en";
-            document.title = isEnglish ? "Casetta Studio | Independent music studio" : "Casetta Studio | Studio musicale indipendente";
+            document.title = "Live from Casetta";
+            document.querySelector('meta[property="og:title"]')?.setAttribute("content", "Live from Casetta");
             document.querySelector('meta[name="description"]')?.setAttribute(
                 "content",
                 isEnglish
-                    ? "Live from casetta and much more."
-                    : "Live from casetta and much more."
+                    ? "Our own live-session format featuring artists of every genre."
+                    : "Il nostro personale format di live session con artisti di ogni genere"
             );
             document.querySelector('meta[property="og:description"]')?.setAttribute(
                 "content",
                 isEnglish
-                    ? "Live from casetta and much more."
-                    : "Live from casetta and much more."
+                    ? "Our own live-session format featuring artists of every genre."
+                    : "Il nostro personale format di live session con artisti di ogni genere"
+            );
+            document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", "Live from Casetta");
+            document.querySelector('meta[name="twitter:description"]')?.setAttribute(
+                "content",
+                isEnglish
+                    ? "Our own live-session format featuring artists of every genre."
+                    : "Il nostro personale format di live session con artisti di ogni genere"
             );
             document.querySelector('meta[property="og:locale"]')?.setAttribute("content", isEnglish ? "en_US" : "it_IT");
         };
